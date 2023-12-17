@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>
+        {% block title %}
+            Crono
+        {% endblock title %} 
+    </title>
+    {% include 'style.html' %}
+</head>
+<body>
+    <header class="p-3">
+        <div>
+            <h1 class="fs-3 fw-bold mb-0">Crono</h1>
+        </div>
+    </header>
+    <main>
+        {% block main %}
+        {% endblock main %}  
+    </main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+:root {
+    --azul: #0a58ca;
+    --branco: #fff;
+}
+
+header {
+    align-items: center;
+    background-color: var(--azul);
+    color: var(--branco);
+    display: flex;
+    height: 66px;
+}
+
+main {
+    min-height: calc(100vh - 66px);
+}
