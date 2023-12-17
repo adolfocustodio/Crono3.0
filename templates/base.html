@@ -1,24 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>
-        {% block title %}
+        {% block titulo %}
             Crono
-        {% endblock title %} 
+        {% endblock titulo %} 
     </title>
-    {% include 'style.html' %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <header class="p-3">
+    <header class="aic df jcsb p-3">
         <div>
             <h1 class="fs-3 fw-bold mb-0">Crono</h1>
         </div>
     </header>
-    <main>
-        {% block main %}
-        {% endblock main %}  
+    <main class="aic df p-3 flex-column">
+        {% block conteudo %}
+        {% endblock conteudo %}  
     </main>
 </body>
 </html>
