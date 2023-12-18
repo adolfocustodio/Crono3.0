@@ -7,6 +7,7 @@
     --azul: #0a58ca;
     --azul2: #094fba;
     --azul3: #083fba;
+    --azul_claro: rgb(207, 226, 255, 0.5);
     --cinza: #6c757d;
     --cinza2: #666f79;
     --cinza3: #606b75;
@@ -29,8 +30,16 @@
     justify-content: space-between;
 }
 
+.jcc {
+    justify-content: center;
+}
+
 .jcse {
     justify-content: space-evenly;
+}
+
+.jce {
+    justify-content: end;
 }
 
 header {

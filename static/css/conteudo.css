@@ -11,3 +11,7 @@ main {
 form {
     width: 750px;
 }
+
+tbody tr:hover td {
+    background-color: var(--azul_claro);
+}
