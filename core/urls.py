@@ -1,12 +1,13 @@
 from django.urls import path
-from . import views
+from .views import Inicio, CategoriaPostagens, CategoriaCriar, CategoriaListar, CategoriaEditar, CategoriaExcluir
 
 
 app_name = 'core'
 urlpatterns = [
-    path('', views.HomeView.as_view(), name='home'),
-    path('categoria/criar/', views.CategoriaCreateView.as_view(), name='categoria_form'),
-    path('categoria/listar/', views.CategoriaListView.as_view(), name='categoria_listar'),
-    path('categoria/editar/<int:pk>/', views.CategoriaUpdateView.as_view(), name='categoria_editar'),
-    path('categoria/excluir/<int:pk>/', views.CategoriaDeleteView.as_view(), name='categoria_excluir')
+    path('', Inicio.as_view(), name='inicio'),
+    path('<int:pk>/postagens/', CategoriaPostagens.as_view(), name='categoria_postagens'),
+    path('categoria/criar/', CategoriaCriar.as_view(), name='categoria_criar'),
+    path('categoria/listar/', CategoriaListar.as_view(), name='categoria_listar'),
+    path('categoria/editar/<int:pk>/', CategoriaEditar.as_view(), name='categoria_editar'),
+    path('categoria/excluir/<int:pk>/', CategoriaExcluir.as_view(), name='categoria_excluir')
 ]

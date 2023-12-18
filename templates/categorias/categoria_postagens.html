@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block main %}
+<div>
+    {% for postagem in postagens %}
+    <div class="mb-3 postagem p-3">
+        <div class="df jcsb">
+            <div>
+                <a class="fw-medium link" href="">username</a>
+            </div>
+            <div>
+                <a class="link" data-bs-toggle="dropdown" href=""><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'postagens:postagem_editar' postagem.pk %}">Editar</a>
+                    </li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" href="#deleteModal">Excluir</a></li>
+                </ul>
+                {% include 'postagens/postagem_confirm_delete.html' %}
+            </div>
+        </div>
+        <hr>
+        <div class="mb-3">
+            <h1 class="fw-medium fs-2">{{ postagem.titulo }}</h1>
+            <a class="fw-medium link" href="">{{ postagem.categoria }}</a>
+        </div>
+        <div>
+            <p class="mb-0">{{ postagem.desc | linebreaksbr | truncatechars:500 }}</p>
+        </div>
+        <hr>
+        <div class="df jcse">
+            <a class="link" download href="{{ postagem.arquivo.url }}"><i class="bi bi-download"></i></a>
+            <a class="link" href=""><i class="bi bi-heart"></i></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock main %}
