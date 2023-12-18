@@ -1,26 +1,33 @@
 {% extends 'base.html' %}
-{% block conteudo %}
+{% block main %}
+{% for postagem in postagens %}
 <div class="mb-3 postagem p-3">
     <div class="df jcsb">
         <div>
             <a class="fw-medium link" href="">username</a>
         </div>
         <div>
-            <a class="link" href=""><i class="bi bi-three-dots"></i></a>
+            <a class="link" data-bs-toggle="dropdown" href=""><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'postagens:postagem_editar' postagem.pk %}">Editar</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="#deleteModal">Excluir</a></li>
+            </ul>
+            {% include 'postagens/postagem_confirm_delete.html' %}
         </div>
     </div>
     <hr>
     <div class="mb-3">
-        <h1 class="fw-medium fs-2">Titulo da postagem</h1>
-        <a class="fw-medium link" href="">Categoria da postagem</a>
+        <h1 class="fw-medium fs-2">{{ postagem.titulo }}</h1>
+        <a class="fw-medium link" href="">{{ postagem.categoria }}</a>
     </div>
     <div>
-        <p class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde voluptatum molestias eaque aliquid in, adipisci corporis ipsum at. Suscipit omnis reprehenderit nihil. Natus, repudiandae asperiores? Explicabo corporis nam aliquam aliquid? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex adipisci iste incidunt nulla ea minima id. Magnam debitis placeat dolor perspiciatis, architecto inventore nihil atque quis, unde est ratione delectus.</p>
+        <p class="mb-0">{{ postagem.desc }}</p>
     </div>
     <hr>
     <div class="df jcse">
-        <a class="link" download href=""><i class="bi bi-download"></i></a>
+        <a class="link" download href="{{ postagem.arquivo.url }}"><i class="bi bi-download"></i></a>
         <a class="link" href=""><i class="bi bi-heart"></i></a>
     </div>
 </div>
-{% endblock conteudo %}
+{% endfor %}
+{% endblock main %}

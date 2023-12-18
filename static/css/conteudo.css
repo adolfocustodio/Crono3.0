@@ -1,0 +1,13 @@
+main {
+    background-color: var(--branco2);
+    min-height: calc(100vh - 66px);
+}
+
+.postagem {
+    background-color: var(--branco);
+    width: 750px;
+}
+
+form {
+    width: 750px;
+}
